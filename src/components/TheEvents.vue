@@ -39,16 +39,14 @@ const eventName = ref("");
 const data = ref("");
 
 onMounted(() => {
-  setTimeout(() => {
-    if (proxy == null) return;
-    proxy.$connect();
-    proxy.$socket.onmessage = (res) => {
-      console.log(res);
-      const response = JSON.parse(res.data);
-      eventName.value = response.event;
-      data.value = response.ctime;
-      newArr.push({ data: response.ctime, eventName: response.event });
-    };
-  }, 300);
+  if (proxy == null) return;
+  proxy.$connect();
+  proxy.$socket.onmessage = (res) => {
+    console.log(res);
+    const response = JSON.parse(res.data);
+    eventName.value = response.event;
+    data.value = response.ctime;
+    newArr.push({ data: response.ctime, eventName: response.event });
+  };
 });
 </script>

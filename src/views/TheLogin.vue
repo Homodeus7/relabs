@@ -4,19 +4,20 @@
       min-width="300"
       class="absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"
     >
-      <v-progress-circular
-        v-if="isLoading"
-        indeterminate
-        :size="100"
-        :width="10"
-        color="primary"
-        class="ml-[100px]"
-      ></v-progress-circular>
-      <v-card v-else color="eeeeee" class="pa-10">
+      <v-card color="eeeeee" class="w-[360px] h-[300px]">
+        <v-progress-circular
+          v-if="isLoading"
+          indeterminate
+          :size="100"
+          :width="10"
+          color="primary"
+          class="ml-[130px] mt-[90px]"
+        ></v-progress-circular>
         <v-form
+          v-else
+          class="w-[300px] h-[220px] mx-auto mt-10"
           validate-on="submit lazy"
           @submit.prevent="log"
-          class="w-[300px]"
         >
           <v-text-field
             v-model="valid.email.value"
