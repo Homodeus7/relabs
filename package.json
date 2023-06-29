@@ -18,6 +18,7 @@
     "tailwindcss": "^3.3.2",
     "vee-validate": "^4.9.6",
     "vue": "^3.2.0",
+    "vue-awesome-paginate": "^1.1.46",
     "vue-chartjs": "^5.2.0",
     "vue-native-websocket-vue3": "^3.1.7",
     "vue-router": "^4.0.0",

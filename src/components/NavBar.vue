@@ -2,7 +2,7 @@
   <nav
     class="flex items-center justify-between px-10 bg-blue-600 py-2 text-white uppercase"
   >
-    <h1 class="text-h5">Relabs</h1>
+    <h1 class="text-3xl font-black uppercase">Relabs</h1>
     <v-row justify="end" no-gutters class="gap-4">
       <router-link v-for="link in links" :key="link" :to="link.link">
         <v-btn color="white" variant="text" class="mx-2" rounded="xl">{{

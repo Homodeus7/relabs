@@ -1,5 +1,5 @@
 <template>
-  <div class="m-3 flex">
+  <div class="m-12 flex gap-14">
     <TheUsers />
     <TheEvents />
   </div>

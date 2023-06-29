@@ -82,4 +82,6 @@ import { useGoods } from "@/store/goods";
 
 const goodsStore = useGoods();
 const goods = computed(() => goodsStore.goods);
+
+const toCard = () => {};
 </script>

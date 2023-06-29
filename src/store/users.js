@@ -5,6 +5,7 @@ export const useUsers = defineStore("users", {
   state: () => ({
     sliceUsers: [],
     totalUsers: 0,
+    perPage: 0,
   }),
   actions: {
     async getSliceUsers(offset) {
@@ -13,6 +14,7 @@ export const useUsers = defineStore("users", {
       );
       this.sliceUsers = data.data.items;
       this.totalUsers = data.data.total;
+      this.perPage = data.data.per_page;
     },
     removeUser(id) {
       if (this.sliceUsers.length) {
