@@ -1,5 +1,5 @@
 <template>
-  <div class="m-12 flex gap-14">
+  <div class="m-12 flex items-center justify-center gap-14">
     <TheUsers />
     <TheEvents />
   </div>

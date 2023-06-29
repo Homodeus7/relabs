@@ -1,5 +1,5 @@
 <template>
-  <div class="m-3 flex flex-col items-center gap-8 overflow-y-auto h-[500px]">
+  <div class="m-3 flex flex-col items-center gap-8 min-w-[380px]">
     <v-card-title class="text-h5">Список событий</v-card-title>
     <v-progress-circular
       v-if="isLoading"
@@ -9,7 +9,7 @@
       color="primary"
       class="my-24"
     ></v-progress-circular>
-    <v-table v-else>
+    <v-table v-else class="overflow-y-auto h-[403px]">
       <thead>
         <tr>
           <th class="text-left">Дата</th>
