@@ -17,8 +17,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in newArr">
-          <td>{{ formatObjectDate(item.data * 1000) }}</td>
+        <tr v-for="item in events">
+          <td>{{ formatObjectDate(item.date * 1000) }}</td>
           <td>{{ item.eventName }}</td>
         </tr>
       </tbody>
@@ -33,10 +33,7 @@ const { proxy } = getCurrentInstance();
 
 const isLoading = ref(false);
 
-const newArr = reactive([]);
-
-const eventName = ref("");
-const data = ref("");
+const events = reactive([]);
 
 onMounted(() => {
   if (proxy == null) return;
@@ -44,9 +41,7 @@ onMounted(() => {
   proxy.$socket.onmessage = (res) => {
     console.log(res);
     const response = JSON.parse(res.data);
-    eventName.value = response.event;
-    data.value = response.ctime;
-    newArr.push({ data: response.ctime, eventName: response.event });
+    events.push({ date: response.ctime, eventName: response.event });
   };
 });
 </script>

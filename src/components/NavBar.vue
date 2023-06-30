@@ -4,10 +4,14 @@
   >
     <h1 class="text-3xl font-black uppercase">Relabs</h1>
     <v-row justify="end" no-gutters class="gap-4">
-      <router-link v-for="link in links" :key="link" :to="link.link">
-        <v-btn color="white" variant="text" class="mx-2" rounded="xl">{{
-          link.name
-        }}</v-btn>
+      <router-link
+        v-for="link in links"
+        :key="link"
+        :to="link.link"
+        class="link"
+        :class="{ active: link === currentlyActiveItem }"
+      >
+        {{ link.name }}
       </router-link>
     </v-row>
   </nav>
@@ -22,3 +26,11 @@ const links = reactive([
   { link: "/shop", name: "Магазин" },
 ]);
 </script>
+<style lang="scss" scoped>
+.link:hover {
+  text-decoration: underline;
+}
+.active {
+  text-decoration: underline;
+}
+</style>

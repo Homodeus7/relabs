@@ -7,9 +7,9 @@
       :size="100"
       :width="10"
       color="primary"
-      class="my-24 mx-52"
+      class="mx-[225px] min-h-[330px]"
     />
-    <v-table v-else>
+    <v-table class="min-h-[330px]" v-else>
       <thead>
         <tr>
           <th class="text-left">ID</th>
@@ -23,7 +23,6 @@
       <tbody>
         <tr v-for="item in users" :key="item.id">
           <td>{{ item.id }}</td>
-
           <td>{{ item.name }}</td>
           <td>{{ item.role }}</td>
           <td>{{ formatObjectDate(item.ctime * 1000) }}</td>
@@ -47,7 +46,6 @@
         :total-items="totalUsers"
         v-model="page"
         :items-per-page="perPage"
-        :max-pages-shown="1"
         @click="getSliceUsers"
       >
         <template #prev-button>
