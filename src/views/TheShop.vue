@@ -25,7 +25,7 @@
               size="small"
               elevated
               color="grey"
-              class="show-child absolute top-[50%]"
+              class="show-child absolute"
               @click="overlay = !overlay"
               >посмотреть</v-btn
             >
@@ -122,6 +122,7 @@ const toCard = () => {};
 .show-child {
   opacity: 0;
   left: calc(60% - 100px);
+  bottom: 150px;
   transition: opacity 0.3s;
 }
 </style>
