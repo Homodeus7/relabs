@@ -18,8 +18,32 @@
             ></v-progress-linear>
           </template>
 
-          <v-img height="300" :src="good.img"></v-img>
-
+          <div class="relative show">
+            <v-img height="300" :src="good.img"></v-img>
+            <v-btn
+              rounded="xl"
+              size="small"
+              elevated
+              color="grey"
+              class="show-child absolute top-[50%]"
+              @click="overlay = !overlay"
+              >посмотреть</v-btn
+            >
+          </div>
+          <v-overlay v-model="overlay" class="flex items-center justify-center">
+            <v-window v-model="onboarding" show-arrows="hover">
+              <v-window-item v-for="n in length" :key="`card-${n}`">
+                <v-card
+                  elevation="2"
+                  height="400"
+                  width="600"
+                  class="d-flex align-center justify-center"
+                >
+                  <h1 class="text-h2">Slide {{ n }}</h1>
+                </v-card>
+              </v-window-item>
+            </v-window>
+          </v-overlay>
           <v-card-item>
             <div class="flex gap-3">
               <div class="font-black text-2xl">{{ good.price }}&#8381;</div>
@@ -31,7 +55,7 @@
               <div class="font-black text-xl text-purple">
                 {{ good.cardPrice }}&#8381;
               </div>
-              <div class="text-sm text-green-700">при оплате по карте</div>
+              <div class="text-sm text-green-700">при оплате картой</div>
             </div>
           </v-card-item>
 
@@ -77,11 +101,27 @@
   </div>
 </template>
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useGoods } from "@/store/goods";
 
 const goodsStore = useGoods();
 const goods = computed(() => goodsStore.goods);
+const overlay = ref(false);
+const length = ref(3);
+const onboarding = ref(0);
 
 const toCard = () => {};
 </script>
+
+<style lang="scss">
+.show:hover .show-child {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.show-child {
+  opacity: 0;
+  left: calc(60% - 100px);
+  transition: opacity 0.3s;
+}
+</style>
